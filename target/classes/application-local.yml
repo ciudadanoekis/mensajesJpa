@@ -1,0 +1,40 @@
+server:
+  port: 8998
+
+management:
+  #Disable hystrix because of spring known failure. Check zuul configuration for more detail
+  hystrix:
+    enabled: false
+  endpoints:
+    web:
+      base-path: /manage
+  info:
+    git:
+      mode: full
+      enabled: true
+
+spring:
+  # In order to use the built-in JWT security configuration you need to disable the default security configuration
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+      #ddl-auto: create
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        #generate_statistics: true
+  database:
+    driverClassName: org.postgresql.Driver
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mensajes
+    username: gmolina
+    password: mtza
+
+    

@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Built-By: gmolina
+Build-Jdk: 11.0.9.1
+Implementation-Title: mensajes
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: es.ua.jtech.jpa
+Implementation-Vendor: Paradigma Digital
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/intranet-parent-starter/intranet-microservices-starter/
+ mensajes
+Created-By: Maven Integration for Eclipse
+
