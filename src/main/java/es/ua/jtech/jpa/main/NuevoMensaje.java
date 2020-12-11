@@ -3,7 +3,7 @@ package es.ua.jtech.jpa.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -30,7 +30,7 @@ public class NuevoMensaje {
 			System.out.println("Usuario " + autor.getNombre());
 			String mensaStr = leerTexto("Introduce mensaje: ");
 			Mensaje mens = new Mensaje(mensaStr, autor);
-			mens.setFecha(new Date());
+			mens.setFecha(LocalDate.now());
 			em.persist(mens);
 			System.out.println("identificador del mensaje: " + mens.getId());
 		}

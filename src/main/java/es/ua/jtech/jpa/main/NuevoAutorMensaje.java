@@ -3,7 +3,7 @@ package es.ua.jtech.jpa.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -36,11 +36,11 @@ public class NuevoAutorMensaje {
 		Mensaje mens = new Mensaje(mensajeStr, autor);
 
 		//Establecemos los campos
-		mens.setFecha(new Date());
+		mens.setFecha(LocalDate.now());
 		//Y lo guardamos en la base de datos
 		em.persist(mens);
 
-		Long idMensaje = mens.getId();
+		Integer idMensaje = mens.getId();
 		System.out.println("Identificador del mensaje: " + idMensaje);
 
 		//Cerramos la transaccion y el entity manager
