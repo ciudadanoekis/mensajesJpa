@@ -9,8 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import es.ua.jtech.jpa.mensajes.Autor;
-import es.ua.jtech.jpa.mensajes.Mensaje;
+import es.ua.jtech.jpa.entities.Autor;
+import es.ua.jtech.jpa.entities.Mensaje;
 
 public class NuevoAutorMensaje {
 	public static void main(String[] args) {

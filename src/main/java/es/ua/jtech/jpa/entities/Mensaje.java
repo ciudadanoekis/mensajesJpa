@@ -1,4 +1,4 @@
-package es.ua.jtech.jpa.mensajes;
+package es.ua.jtech.jpa.entities;
 
 import java.time.LocalDate;
 
@@ -27,6 +27,9 @@ public class Mensaje {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MENSAJE_ID_GENERATOR")
 	@Column(name = "mensaje_id")
 	private Integer id;
+
+	private Integer num;
+
 	private String texto;
 
 	@Column(name = "fecha", columnDefinition = "DATE")

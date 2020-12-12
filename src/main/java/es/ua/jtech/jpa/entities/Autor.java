@@ -1,4 +1,4 @@
-package es.ua.jtech.jpa.mensajes;
+package es.ua.jtech.jpa.entities;
 
 import java.util.HashSet;
 import java.util.Set;

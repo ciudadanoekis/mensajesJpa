@@ -10,7 +10,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import es.ua.jtech.jpa.mensajes.Mensaje;
+import es.ua.jtech.jpa.entities.Mensaje;
 
 public class BuscaMensajes {
 	private static final String QUERY_BUSCA_MENSAJES = "SELECT m " + "FROM Mensaje m " + "WHERE m.texto LIKE : patron";
