@@ -37,4 +37,10 @@ spring:
     username: gmolina
     password: mtza
 
-    
+mensajes:
+  # Activacion de swagger
+  # Por defecto esta deshabilitado
+  api:
+    rest:
+      swagger:
+        enabled: true

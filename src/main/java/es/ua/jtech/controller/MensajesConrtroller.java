@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +23,7 @@ import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.ResponseHeader;
 
 @RestController
-@RequestMapping("${jtech.api.rest.basePath}/${jtech.api.rest.version}")
+@RequestMapping("/message")
 @Api(value = "API de mensajes", tags = {
 	"Mensajes"
 })
@@ -42,7 +41,7 @@ public class MensajesConrtroller {
      *
      * @return lista de empleados
      */
-	@GetMapping("/mensajes")
+	@GetMapping("/list")
 	@ApiOperation(value = "Obtiene todos los mensajes")
 	@ApiResponses({
 		@ApiResponse(code = HttpServletResponse.SC_OK, message = "OK",
@@ -70,7 +69,7 @@ public class MensajesConrtroller {
      *           identificador del mensaje
      *@return mensaje indicado
      */
-	@GetMapping("/mensajes/{menssageId}")
+	@GetMapping("/show/{id}")
 	@ApiOperation(value = "Obtiene el mensaje indicado")
     @ApiResponses({
         @ApiResponse(code = HttpServletResponse.SC_OK, message = "OK",
@@ -101,7 +100,7 @@ public class MensajesConrtroller {
      * @throws MethodArgumentNotValidException
      *             the method argument not valid exception
      */
-    @PostMapping("/messages/message")
+    @PostMapping("/add")
     @ApiOperation(value = "Crear un mensaje")
     @ApiResponses({
         @ApiResponse(code = HttpServletResponse.SC_OK, message = "OK",
@@ -117,9 +116,8 @@ public class MensajesConrtroller {
                 @ResponseHeader(name = "X-Api-Version", description = "API version", response = String.class)
         })
     })
-    @PreAuthorize("hasWritePermissions() || isPeople() || hasRoleFinance() || hasRoleProduction() || hasRoleFacilityManager()")
-    public MensajeOutput insertNickName(
-    	@ApiParam(name = "empleado", value = "datos del empleado", required = true)
+    public MensajeOutput insertMessage(
+    	@ApiParam(name = "mensaje", value = "datos del mensaje", required = true)
     	@RequestBody(required = true) MensajeInput originalMessageInput)
     	throws MethodArgumentNotValidException{
     	return mensajesService.insertMessage(originalMessageInput);
