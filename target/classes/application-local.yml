@@ -36,7 +36,27 @@ spring:
     url: jdbc:postgresql://localhost:5432/mensajes
     username: gmolina
     password: mtza
-
+    
+security:
+  oauth2:
+    # Allows to disable built-in JWT security to work locally without the need of the oauth server (enabled by default)
+    enabled: true
+    client:
+      clientId: mensajes
+      clientSecret: s3cr3t
+    resource:
+      ignored: /manage/**, /swagger-resources/**, /swagger-ui.html, /webjars/springfox-swagger-ui/**, /v2/**
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjpTuXV5Yn5B5bQEa+kCZ
+          SqVJlx1U6rXv7ecARBoOj773+Kma7v+VT+GU81ig1J3+yLdRUG+ZXsW99edIZQ6u
+          p+rlP7YTwRkPAofTuXwSmYQPicUmqp/SC+s2Q26BayH9I/oIxKUUAK2OgkBS8wEK
+          WCrJZsLKVwhgLwe/Bum8s+SD2aNieY0ACmwt1A/8uLScAv1+xwVIlOb1AphtAP+1
+          JdeVbJVqbFI7Wy5Qw0Axs78FahAadSKioejsuPhSnbX3WMgrUJhoLu3JMceS7xrx
+          FhaQ6ONXHr/5Y4L9rZptHuU66edW5RWkobBStLVfGLMZpuTEL0N9ZMPumCB5Kdz0
+          jQIDAQAB
+          -----END PUBLIC KEY-----
 mensajes:
   # Activacion de swagger
   # Por defecto esta deshabilitado
